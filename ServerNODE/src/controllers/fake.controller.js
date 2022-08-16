@@ -43,7 +43,7 @@ const addUser = (req, res) => {
   if (name && age && city) {
     const last_id = users[users.length - 1].id
 
-    users.push({ id: last_id++ , name, age, city })
+    users.push({ id: last_id++, name, age, city })
   }
 
   return res.sendStatus(400)
@@ -59,4 +59,39 @@ const getUser = (req, res) => {
   }
 
   return res.sendStatus(500)
+}
+
+const editUser = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    await User.update(
+      { ...req.body },
+      {
+        where: {
+          id,
+        },
+      }
+    )
+    res.status(200).json(req.body)
+  } catch (error) {
+    res.sendStatus(424)
+  }
+}
+
+const deleteUser = async (req, res) => {
+  try {
+    await User.destroy({ where: { id: req.params.id } })
+    return res.sendStatus(200)
+  } catch (err) {
+    return res.sendStatus(500)
+  }
+}
+
+module.exports = {
+  getAllUsers,
+  addUser,
+  getUser,
+  editUser,
+  deleteUser,
 }

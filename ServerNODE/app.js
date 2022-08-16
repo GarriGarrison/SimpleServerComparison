@@ -8,6 +8,8 @@ const DATE = '12.10.2022 г.'
 
 const express = require('express')
 const cors = require('cors')
+const path = require('path')
+require('dotenv').config()
 
 const fakeRouter = require('./src/routes/fake.router')
 
