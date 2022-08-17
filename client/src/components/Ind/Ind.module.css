@@ -1,0 +1,19 @@
+.box {
+  border: 1px solid black;
+  padding: 5px;
+  /* background: silver; */
+}
+
+.unknow {
+  background: silver;
+}
+
+.suсcess {
+  background: green;
+  color: whitesmoke;
+}
+
+.fault {
+  background: red;
+  color: whitesmoke;
+}

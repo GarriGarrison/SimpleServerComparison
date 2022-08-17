@@ -1,0 +1,54 @@
+.container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100vw;
+  background-color: aliceblue;
+}
+
+.connect {
+  padding-bottom: 1rem;
+}
+
+.btn_send {
+  color: whitesmoke;
+  position: relative;
+  place-content: center;
+  place-items: center;
+  width: fit-content;
+  border-radius: 10px;
+  letter-spacing: 0.05em;
+  border: 1px solid black;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 10px;
+  padding: 0.5rem 1.5rem;
+  white-space: nowrap;
+  font-weight: 700;
+  outline: none;
+  background: #010f23;
+  transition: all 0.22s;
+  margin: 10px;
+}
+
+.btn_send:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn_send:disabled {
+  cursor: not-allowed;
+  opacity: 1 !important;
+  background: #bebebe !important;
+  border-color: #ddd !important;
+  color: #999 !important;
+}
+
+.btn_send:active {
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.ind {
+  border: 1px solid black;
+  padding: 5px;
+  background: silver;
+}

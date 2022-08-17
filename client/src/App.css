@@ -1,0 +1,39 @@
+.App {
+  margin: 10px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-main {
+  min-height: 10vh;
+}
+
+.App-footer {
+  min-height: 10vh;
+}
+
+.container-head {
+  text-align: center;
+}
+
+.container-body {
+  justify-content: left;
+}
