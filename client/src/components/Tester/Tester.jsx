@@ -3,22 +3,35 @@ import Ind from '../Ind/Ind'
 import PropTypes from 'prop-types'
 import classes from './Tester.module.css'
 
-const Tester = ({ name, method, url }) => {
+const Tester = ({ name, method, url, data }) => {
   const [result, setResult] = useState('НЕИЗВЕСТНО')
 
   const handleClick = async () => {
+    let response
+
     switch (method) {
       case 'GET':
-        try {
-          const response = await fetch(url)
+        response = await fetch(url)
 
-          if (response.ok) {
-            setResult('УСПЕШНО')
-          } else {
-            setResult('ОШИБКА')
-          }
-        } catch (error) {
-          console.error(error)
+        if (response.ok) {
+          setResult('УСПЕШНО')
+        } else {
+          setResult('ОШИБКА')
+        }
+        break
+      case 'POST':
+        response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify(data),
+        })
+
+        if (response.ok) {
+          setResult('УСПЕШНО')
+        } else {
           setResult('ОШИБКА')
         }
         break
@@ -45,6 +58,7 @@ const Tester = ({ name, method, url }) => {
 
 Tester.propTypes = {
   name: PropTypes.string,
+  data: PropTypes.object
 }
 
 export default Tester
