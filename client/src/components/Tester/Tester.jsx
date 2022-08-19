@@ -35,6 +35,31 @@ const Tester = ({ name, method, url, data }) => {
           setResult('ОШИБКА')
         }
         break
+      case 'PUT':
+        response = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify(data),
+        })
+        if (response.ok) {
+          setResult('УСПЕШНО')
+        } else {
+          setResult('ОШИБКА')
+        }
+        break
+      case 'DELETE':
+        response = await fetch(url, {
+          method: 'DELETE',
+        })
+        if (response.ok) {
+          setResult('УСПЕШНО')
+        } else {
+          setResult('ОШИБКА')
+        }
+        break
       default:
         await fetch(url)
     }
@@ -58,7 +83,7 @@ const Tester = ({ name, method, url, data }) => {
 
 Tester.propTypes = {
   name: PropTypes.string,
-  data: PropTypes.object
+  data: PropTypes.object,
 }
 
 export default Tester
