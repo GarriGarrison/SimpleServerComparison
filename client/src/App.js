@@ -4,39 +4,133 @@ import Tester from './components/Tester/Tester'
 const HOST_NODE = process.env.HOST_NODE
 
 const newUser = {
-  name: "Oleg",
+  name: 'Oleg',
   age: 55,
-  city: "Xeron"
+  city: 'Xeron',
 }
 
 function App() {
-  console.log(HOST_NODE);
+  console.log(HOST_NODE)
   return (
     <div className='App'>
       <header className='App-header'>
         <h1>Тестирование API серверов</h1>
       </header>
 
-      <main>
-        <div className='container'>
-          <h2 className='container-head'>Тестирование NodeJS сервера</h2>
-          <div className='container-body'>
-            <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5001/api/v1/fake' />
-            <Tester name='Добавить пользователя' method='POST' url='http://localhost:5001/api/v1/fake' data={newUser} />
-            <Tester name='Получить однго пользователя' method='GET' url='http://localhost:5001/api/v1/fake/6' />
-            <Tester
-              name='Редактировать данные одного пользователя'
-              method='PUT'
-              url='http://localhost:5001/api/v1/fake/6'
-              data={{age: 35}}
-            />
-            <Tester name='Удалить одного пользователя' method='DELETE' url='http://localhost:5001/api/v1/fake/6' />
+      <main className='App-main'>
+        <div className='content'>
+          <div className='container'>
+            <h2 className='container-head'>сервер NodeJS</h2>
+            <div className='container-body'>
+              <div className='container-item'>
+                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5001/api/v1/fake' />
+                <Tester
+                  name='Добавить пользователя'
+                  method='POST'
+                  url='http://localhost:5001/api/v1/fake'
+                  data={newUser}
+                />
+                <Tester name='Получить пользователя' method='GET' url='http://localhost:5001/api/v1/fake/6' />
+                <Tester
+                  name='Редактировать данные пользователя'
+                  method='PUT'
+                  url='http://localhost:5001/api/v1/fake/6'
+                  data={{ age: 35 }}
+                />
+                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5001/api/v1/fake/6' />
+                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5001/api/v1/users' />
+                <Tester
+                  name='Добавить пользователя'
+                  method='POST'
+                  url='http://localhost:5001/api/v1/users'
+                  data={newUser}
+                />
+                <Tester name='Получить пользователя' method='GET' url='http://localhost:5001/api/v1/users/6' />
+                <Tester
+                  name='Редактировать данные пользователя'
+                  method='PUT'
+                  url='http://localhost:5001/api/v1/users/6'
+                  data={{ age: 35 }}
+                />
+                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5001/api/v1/users/6' />
+              </div>
+            </div>
+          </div>
+          <div className='container'>
+            <h2 className='container-head'>сервер Python</h2>
+            <div className='container-body'>
+              <div className='container-item'>
+                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5002/api/v1/fake' />
+                <Tester
+                  name='Добавить пользователя'
+                  method='POST'
+                  url='http://localhost:5001/api/v1/fake'
+                  data={newUser}
+                />
+                <Tester name='Получить пользователя' method='GET' url='http://localhost:5002/api/v1/fake/6' />
+                <Tester
+                  name='Редактировать данные пользователя'
+                  method='PUT'
+                  url='http://localhost:5001/api/v1/fake/6'
+                  data={{ age: 35 }}
+                />
+                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5002/api/v1/fake/6' />
+                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5002/api/v1/users' />
+                <Tester
+                  name='Добавить пользователя'
+                  method='POST'
+                  url='http://localhost:5001/api/v1/users'
+                  data={newUser}
+                />
+                <Tester name='Получить пользователя' method='GET' url='http://localhost:5002/api/v1/users/6' />
+                <Tester
+                  name='Редактировать данные пользователя'
+                  method='PUT'
+                  url='http://localhost:5002/api/v1/users/6'
+                  data={{ age: 35 }}
+                />
+                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5002/api/v1/users/6' />
+              </div>
+            </div>
+          </div>
+          <div className='container'>
+            <h2 className='container-head'>сервер PHP</h2>
+            <div className='container-body'>
+              <div className='container-item'>
+                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5003/api/v1/fake' />
+                <Tester
+                  name='Добавить пользователя'
+                  method='POST'
+                  url='http://localhost:5001/api/v1/fake'
+                  data={newUser}
+                />
+                <Tester name='Получить пользователя' method='GET' url='http://localhost:5003/api/v1/fake/6' />
+                <Tester
+                  name='Редактировать данные пользователя'
+                  method='PUT'
+                  url='http://localhost:5001/api/v1/fake/6'
+                  data={{ age: 35 }}
+                />
+                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5003/api/v1/fake/6' />
+                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5003/api/v1/users' />
+                <Tester
+                  name='Добавить пользователя'
+                  method='POST'
+                  url='http://localhost:5003/api/v1/users'
+                  data={newUser}
+                />
+                <Tester name='Получить пользователя' method='GET' url='http://localhost:5001/api/v1/users/6' />
+                <Tester
+                  name='Редактировать данные пользователя'
+                  method='PUT'
+                  url='http://localhost:5001/api/v1/users/6'
+                  data={{ age: 35 }}
+                />
+                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5001/api/v1/users/6' />
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className='container'></div>
-
-        <div className='container'></div>
       </main>
 
       <footer className='App-footer'>

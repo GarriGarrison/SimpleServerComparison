@@ -1,15 +1,12 @@
 .container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 5px;
-  width: 100vw;
+  padding-left: 5%;
   background-color: aliceblue;
-  margin: 5px;
-  margin-bottom: 15px;
-}
-
-.connect {
-  padding-bottom: 1rem;
+  /* white-space: normal;	
+	display: inline-block;
+	width: 30%;
+	vertical-align: top;
+	background: #fff2e1;
+	margin-right: 5%; */
 }
 
 .btn_send {
@@ -30,7 +27,6 @@
   outline: none;
   background: #010f23;
   transition: all 0.22s;
-  margin: 10px;
 }
 
 .btn_send:hover {
@@ -48,10 +44,4 @@
 
 .btn_send:active {
   box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-.ind {
-  border: 1px solid black;
-  padding: 5px;
-  background: silver;
 }

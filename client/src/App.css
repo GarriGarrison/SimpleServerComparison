@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
+  height: 8vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,21 +13,37 @@
   color: white;
 }
 
-.App-footer {
-  text-align: center;
-  margin-top: 20px;
-}
-
 .App-link {
   color: #61dafb;
 }
 
 .App-main {
-  min-height: 10vh;
+  min-height: 75vh;
 }
 
 .App-footer {
-  min-height: 10vh;
+  text-align: center;
+  margin-top: 20px;
+  min-height: 3vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  height: 30%;
+  background: rgb(248, 252, 255);
+}
+.container + .container {
+  margin-left: 1%;
 }
 
 .container-head {
@@ -36,4 +52,8 @@
 
 .container-body {
   justify-content: left;
+}
+
+h2 {
+  height: 0.5rem;
 }

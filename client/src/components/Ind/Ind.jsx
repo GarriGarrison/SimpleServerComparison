@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-// import { useState } from 'react';
 import styles from './Ind.module.css'
 
 const Ind = ({ state }) => {
