@@ -1,5 +1,5 @@
 import './App.css'
-import Tester from './components/Tester/Tester'
+import Tester from '../Tester'
 
 const HOST_NODE = process.env.HOST_NODE
 

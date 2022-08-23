@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Ind from '../Ind/Ind'
+import Ind from '../Ind'
 import PropTypes from 'prop-types'
 import classes from './Tester.module.css'
 
