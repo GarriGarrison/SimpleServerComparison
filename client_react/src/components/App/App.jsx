@@ -1,6 +1,42 @@
 import './App.css'
 import Tester from '../Tester'
-import { testData } from '../../helpers/TestData.helper'
+import {
+  testAllUsersNode,
+  testAllUsersFakeNode,
+  testUserAddFakeNode,
+  testUserDataFakeNode,
+  testUserEditFakeNode,
+  testUserRemoveFakeNode,
+  testUserDataNode,
+  testUserEditNode,
+  testUserRemoveNode,
+  testUserAddNode,
+} from '../../helpers/TestNode'
+import {
+  testAllUsersPython,
+  testAllUsersFakePython,
+  testUserAddFakePython,
+  testUserDataFakePython,
+  testUserEditFakePython,
+  testUserRemoveFakePython,
+  testUserDataPython,
+  testUserEditPython,
+  testUserRemovePython,
+  testUserAddPython,
+} from '../../helpers/TestPython'
+import {
+  testAllUsersPhp,
+  testAllUsersFakePhp,
+  testUserAddFakePhp,
+  testUserDataFakePhp,
+  testUserEditFakePhp,
+  testUserRemoveFakePhp,
+  testUserDataPhp,
+  testUserEditPhp,
+  testUserRemovePhp,
+  testUserAddPhp,
+} from '../../helpers/TestPhp'
+
 
 const newUser = {
   name: 'Oleg',
@@ -8,33 +44,48 @@ const newUser = {
   city: 'Xeron',
 }
 
-const api_now = 'v1'
-
 function App() {
-  /** Проверка сервера NodeJS */
-  const testAllUsersFake = testData({ test_name: 'ALL_USERS', local_port: 5001, router: 'fake', api_version: api_now })
-  const testUserAddFake = testData({ test_name: 'USER_ADD', local_port: 5001, router: 'fake', api_version: api_now })
-  const testUserDataFake = testData({
-    test_name: 'USER_DATA',
-    local_port: 5001,
-    router: 'fake',
-    api_version: api_now,
-    id: 6,
-  })
-  const testUserEditFake = testData({
-    test_name: 'USER_EDIT',
-    local_port: 5001,
-    router: 'fake',
-    api_version: api_now,
-    id: 6,
-  })
-  const testUserRemoveFake = testData({
-    test_name: 'USER_REMOVE',
-    local_port: 5001,
-    router: 'fake',
-    api_version: api_now,
-    id: 6,
-  })
+  /** Данные для сервера NodeJS  */
+  /* Фейковые данные */
+  const allUserFakeNode = testAllUsersFakeNode
+  const userAddFakeNode = testUserAddFakeNode
+  const userDataFakeNode = testUserDataFakeNode
+  const userEditFakeNode = testUserEditFakeNode
+  const userRemoveFakeNode = testUserRemoveFakeNode
+  /* Данные из базы данных */
+  const allUserNode = testAllUsersNode
+  const userAddNode = testUserAddNode
+  const userDataNode = testUserDataNode
+  const userEditNode = testUserEditNode
+  const userRemoveNode = testUserRemoveNode
+
+  /** Данные для сервера Python  */
+  /* Фейковые данные */
+  const allUserFakePython = testAllUsersFakePython
+  const userAddFakePython = testUserAddFakePython
+  const userDataFakePython = testUserDataFakePython
+  const userEditFakePython = testUserEditFakePython
+  const userRemoveFakePython = testUserRemoveFakePython
+  /* Данные из базы данных */
+  const allUserPython = testAllUsersPython
+  const userAddPython = testUserAddPython
+  const userDataPython = testUserDataPython
+  const userEditPython = testUserEditPython
+  const userRemovePython = testUserRemovePython
+
+  /** Данные для сервера PHP  */
+  /* Фейковые данные */
+  const allUserFakePhp = testAllUsersFakePhp
+  const userAddFakePhp = testUserAddFakePhp
+  const userDataFakePhp = testUserDataFakePhp
+  const userEditFakePhp = testUserEditFakePhp
+  const userRemoveFakePhp = testUserRemoveFakePhp
+  /* Данные из базы данных */
+  const allUserPhp = testAllUsersPhp
+  const userAddPhp = testUserAddPhp
+  const userDataPhp = testUserDataPhp
+  const userEditPhp = testUserEditPhp
+  const userRemovePhp = testUserRemovePhp
 
   return (
     <div className='App'>
@@ -48,25 +99,37 @@ function App() {
             <h2 className='container-head'>сервер NodeJS</h2>
             <div className='container-body'>
               <div className='container-item'>
-                <Tester name={testAllUsersFake.title} method={testAllUsersFake.method} url={testAllUsersFake.url} />
+                <Tester name={allUserFakeNode.title} method={allUserFakeNode.method} url={allUserFakeNode.url} />
                 <Tester
-                  name={testUserAddFake.title}
-                  method={testUserAddFake.method}
-                  url={testUserAddFake.url}
+                  name={userAddFakeNode.title}
+                  method={userAddFakeNode.method}
+                  url={userAddFakeNode.url}
                   data={newUser}
                 />
-                <Tester name={testUserDataFake.title} method={testUserDataFake.method} url={testUserDataFake.url} />
+                <Tester name={userDataFakeNode.title} method={userDataFakeNode.method} url={userDataFakeNode.url} />
                 <Tester
-                  name={testUserEditFake.title}
-                  method={testUserEditFake.method}
-                  url={testUserEditFake.url}
+                  name={userEditFakeNode.title}
+                  method={userEditFakeNode.method}
+                  url={userEditFakeNode.url}
                   data={{ age: 35 }}
                 />
                 <Tester
-                  name={testUserRemoveFake.title}
-                  method={testUserRemoveFake.method}
-                  url={testUserRemoveFake.url}
+                  name={userRemoveFakeNode.title}
+                  method={userRemoveFakeNode.method}
+                  url={userRemoveFakeNode.url}
                 />
+              </div>
+              <div className='container-item'>
+                <Tester name={allUserNode.title} method={allUserNode.method} url={allUserNode.url} />
+                <Tester name={userAddNode.title} method={userAddNode.method} url={userAddNode.url} data={newUser} />
+                <Tester name={userDataNode.title} method={userDataNode.method} url={userDataNode.url} />
+                <Tester
+                  name={userEditNode.title}
+                  method={userEditNode.method}
+                  url={userEditNode.url}
+                  data={{ age: 35 }}
+                />
+                <Tester name={userRemoveNode.title} method={userRemoveNode.method} url={userRemoveNode.url} />
               </div>
             </div>
           </div>
@@ -74,36 +137,37 @@ function App() {
             <h2 className='container-head'>сервер Python</h2>
             <div className='container-body'>
               <div className='container-item'>
-                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5002/api/v1/fake' />
+                <Tester name={allUserFakePython.title} method={allUserFakePython.method} url={allUserFakePython.url} />
                 <Tester
-                  name='Добавить пользователя'
-                  method='POST'
-                  url='http://localhost:5001/api/v1/fake'
+                  name={userAddFakePython.title}
+                  method={userAddFakePython.method}
+                  url={userAddFakePython.url}
                   data={newUser}
                 />
-                <Tester name='Получить пользователя' method='GET' url='http://localhost:5002/api/v1/fake/6' />
+                <Tester name={userDataFakePython.title} method={userDataFakePython.method} url={userDataFakePython.url} />
                 <Tester
-                  name='Редактировать данные пользователя'
-                  method='PUT'
-                  url='http://localhost:5001/api/v1/fake/6'
+                  name={userEditFakePython.title}
+                  method={userEditFakePython.method}
+                  url={userEditFakePython.url}
                   data={{ age: 35 }}
                 />
-                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5002/api/v1/fake/6' />
-                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5002/api/v1/users' />
                 <Tester
-                  name='Добавить пользователя'
-                  method='POST'
-                  url='http://localhost:5001/api/v1/users'
-                  data={newUser}
+                  name={userRemoveFakePython.title}
+                  method={userRemoveFakePython.method}
+                  url={userRemoveFakePython.url}
                 />
-                <Tester name='Получить пользователя' method='GET' url='http://localhost:5002/api/v1/users/6' />
+              </div>
+              <div className='container-item'>
+                <Tester name={allUserPython.title} method={allUserPython.method} url={allUserPython.url} />
+                <Tester name={userAddPython.title} method={userAddPython.method} url={userAddPython.url} data={newUser} />
+                <Tester name={userDataPython.title} method={userDataPython.method} url={userDataPython.url} />
                 <Tester
-                  name='Редактировать данные пользователя'
-                  method='PUT'
-                  url='http://localhost:5002/api/v1/users/6'
+                  name={userEditPython.title}
+                  method={userEditPython.method}
+                  url={userEditPython.url}
                   data={{ age: 35 }}
                 />
-                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5002/api/v1/users/6' />
+                <Tester name={userRemovePython.title} method={userRemovePython.method} url={userRemovePython.url} />
               </div>
             </div>
           </div>
@@ -111,36 +175,36 @@ function App() {
             <h2 className='container-head'>сервер PHP</h2>
             <div className='container-body'>
               <div className='container-item'>
-                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5003/api/v1/fake' />
+                <Tester name={allUserFakePhp.title} method={allUserFakePhp.method} url={allUserFakePhp.url} />
                 <Tester
-                  name='Добавить пользователя'
-                  method='POST'
-                  url='http://localhost:5001/api/v1/fake'
+                  name={userAddFakePhp.title}
+                  method={userAddFakePhp.method}
+                  url={userAddFakePhp.url}
                   data={newUser}
                 />
-                <Tester name='Получить пользователя' method='GET' url='http://localhost:5003/api/v1/fake/6' />
+                <Tester name={userDataFakePhp.title} method={userDataFakePhp.method} url={userDataFakePhp.url} />
                 <Tester
-                  name='Редактировать данные пользователя'
-                  method='PUT'
-                  url='http://localhost:5001/api/v1/fake/6'
+                  name={userEditFakePhp.title}
+                  method={userEditFakePhp.method}
+                  url={userEditFakePhp.url}
                   data={{ age: 35 }}
                 />
-                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5003/api/v1/fake/6' />
-                <Tester name='Получить всех пользователей' method='GET' url='http://localhost:5003/api/v1/users' />
                 <Tester
-                  name='Добавить пользователя'
-                  method='POST'
-                  url='http://localhost:5003/api/v1/users'
-                  data={newUser}
-                />
-                <Tester name='Получить пользователя' method='GET' url='http://localhost:5001/api/v1/users/6' />
+                  name={userRemoveFakePhp.title}
+                  method={userRemoveFakePhp.method}
+                  url={userRemoveFakePhp.url}Php             />
+              </div>
+              <div className='container-item'>
+                <Tester name={allUserPhp.title} method={allUserPhp.method} url={allUserPhp.url} />
+                <Tester name={userAddPhp.title} method={userAddPhp.method} url={userAddPhp.url} data={newUser} />
+                <Tester name={userDataPhp.title} method={userDataPhp.method} url={userDataPhp.url} />
                 <Tester
-                  name='Редактировать данные пользователя'
-                  method='PUT'
-                  url='http://localhost:5001/api/v1/users/6'
+                  name={userEditPhp.title}
+                  method={userEditPhp.method}
+                  url={userEditPhp.url}
                   data={{ age: 35 }}
                 />
-                <Tester name='Удалить пользователя' method='DELETE' url='http://localhost:5001/api/v1/users/6' />
+                <Tester name={userRemovePhp.title} method={userRemovePhp.method} url={userRemovePhp.url} />
               </div>
             </div>
           </div>

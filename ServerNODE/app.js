@@ -3,8 +3,8 @@
  * Path: "server"
  * Author: Garrison
  */
-const RELEASE = 4
-const DATE = '19.10.2022 г.'
+const RELEASE = 5
+const DATE = '29.10.2022 г.'
 
 const express = require('express')
 const cors = require('cors')
