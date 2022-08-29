@@ -37,7 +37,6 @@ import {
   testUserAddPhp,
 } from '../../helpers/TestPhp'
 
-
 const newUser = {
   name: 'Oleg',
   age: 55,
@@ -144,7 +143,11 @@ function App() {
                   url={userAddFakePython.url}
                   data={newUser}
                 />
-                <Tester name={userDataFakePython.title} method={userDataFakePython.method} url={userDataFakePython.url} />
+                <Tester
+                  name={userDataFakePython.title}
+                  method={userDataFakePython.method}
+                  url={userDataFakePython.url}
+                />
                 <Tester
                   name={userEditFakePython.title}
                   method={userEditFakePython.method}
@@ -159,7 +162,12 @@ function App() {
               </div>
               <div className='container-item'>
                 <Tester name={allUserPython.title} method={allUserPython.method} url={allUserPython.url} />
-                <Tester name={userAddPython.title} method={userAddPython.method} url={userAddPython.url} data={newUser} />
+                <Tester
+                  name={userAddPython.title}
+                  method={userAddPython.method}
+                  url={userAddPython.url}
+                  data={newUser}
+                />
                 <Tester name={userDataPython.title} method={userDataPython.method} url={userDataPython.url} />
                 <Tester
                   name={userEditPython.title}
@@ -192,18 +200,15 @@ function App() {
                 <Tester
                   name={userRemoveFakePhp.title}
                   method={userRemoveFakePhp.method}
-                  url={userRemoveFakePhp.url}Php             />
+                  url={userRemoveFakePhp.url}
+                  Php
+                />
               </div>
               <div className='container-item'>
                 <Tester name={allUserPhp.title} method={allUserPhp.method} url={allUserPhp.url} />
                 <Tester name={userAddPhp.title} method={userAddPhp.method} url={userAddPhp.url} data={newUser} />
                 <Tester name={userDataPhp.title} method={userDataPhp.method} url={userDataPhp.url} />
-                <Tester
-                  name={userEditPhp.title}
-                  method={userEditPhp.method}
-                  url={userEditPhp.url}
-                  data={{ age: 35 }}
-                />
+                <Tester name={userEditPhp.title} method={userEditPhp.method} url={userEditPhp.url} data={{ age: 35 }} />
                 <Tester name={userRemovePhp.title} method={userRemovePhp.method} url={userRemovePhp.url} />
               </div>
             </div>

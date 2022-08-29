@@ -20,7 +20,6 @@ export const testData = ({ test_name, local_port, router, api_version = 'v1', id
       result.title = 'Получить всех пользователей'
       result.method = 'GET'
       result.url = `http://localhost:${local_port}/api/${api_version}/${router}`
-      console.log('-----', result)
       break
 
     case 'USER_ADD':
