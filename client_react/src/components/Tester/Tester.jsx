@@ -35,6 +35,21 @@ const Tester = ({ name, method, url, data }) => {
           setResult('ОШИБКА')
         }
         break
+      case 'PATCH':
+        response = await fetch(url, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify(data),
+        })
+        if (response.ok) {
+          setResult('УСПЕШНО')
+        } else {
+          setResult('ОШИБКА')
+        }
+        break
       case 'PUT':
         response = await fetch(url, {
           method: 'PUT',

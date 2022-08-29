@@ -2,8 +2,6 @@ import PropTypes from 'prop-types'
 import styles from './Ind.module.css'
 
 const Ind = ({ state }) => {
-
-
   return (
     <span className={styles.box}>
       {state === 'НЕИЗВЕСТНО' ? (

@@ -7,8 +7,8 @@ router.route('/')
 
 router.route('/:id')
   .get(fakeController.getUser)
-  // .patch(fakeController.editUser)
-  .put(fakeController.editUser)
+  .patch(fakeController.editUser)
+  // .put(fakeController.editUser)
   .delete(fakeController.deleteUser)
 
 module.exports = router

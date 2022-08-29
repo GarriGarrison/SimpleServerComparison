@@ -94,7 +94,7 @@ const editUser = async (req, res) => {
         ...req.body,
       }
 
-      console.log('PUT edit user with id=' + id)
+      console.log('PATCH edit user with id=' + id)
       console.log(users)
       console.log('--------------------------------------------------')
 
@@ -102,7 +102,7 @@ const editUser = async (req, res) => {
     }
   }
 
-  console.log('PUT edit user with id=' + id)
+  console.log('PATCH edit user with id=' + id)
   console.error('ERROR')
   console.log('--------------------------------------------------')
 
