@@ -1,0 +1,17 @@
+.box {
+  border: 1px solid black;
+}
+
+.unknow {
+  background: silver;
+}
+
+.suсcess {
+  background: green;
+  color: whitesmoke;
+}
+
+.fault {
+  background: red;
+  color: whitesmoke;
+}
