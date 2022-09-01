@@ -6,11 +6,11 @@ interface TesterProps {
   name: string
   method: TMethod
   url: string
-  data: object
+  data?: object
 }
 
-const Tester = ({ name, method, url, data }: TesterProps) => {
-  const [result, setResult] = useState('НЕИЗВЕСТНО')
+const Tester = ({ name="Тест", method="GET", url="host", data }: TesterProps) => {
+  const [result, setResult] = useState<TState>('НЕИЗВЕСТНО')
 
   const handleClick = async () => {
     let response

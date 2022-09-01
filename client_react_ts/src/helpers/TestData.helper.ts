@@ -10,13 +10,13 @@ interface TestDataProps {
 }
 
 export const testData = ({ test_name, local_port, router, api_version = 'v1', id }: TestDataProps) => {
-  interface IRusault {
+  interface IResult {
     title: string | undefined
-    method: string | undefined
+    method: TMethod | undefined
     url: string | undefined
     id: string | undefined
   }
-  let result: IRusault = {
+  let result: IResult = {
     title: undefined,
     method: undefined,
     url: undefined,

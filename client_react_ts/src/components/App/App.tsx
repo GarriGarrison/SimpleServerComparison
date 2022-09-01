@@ -1,5 +1,42 @@
 import React from 'react'
 import './App.css'
+import Tester from '../Tester'
+import {
+  testAllUsersFakeNode,
+  testUserAddFakeNode,
+  testUserDataFakeNode,
+  testUserEditFakeNode,
+  testUserRemoveFakeNode,
+  testAllUsersNode,
+  testUserAddNode,
+  testUserDataNode,
+  testUserEditNode,
+  testUserRemoveNode,
+} from '../../helpers/TestNode.helper'
+import {
+  testAllUsersFakePython,
+  testUserAddFakePython,
+  testUserDataFakePython,
+  testUserEditFakePython,
+  testUserRemoveFakePython,
+  testAllUsersPython,
+  testUserAddPython,
+  testUserDataPython,
+  testUserEditPython,
+  testUserRemovePython,
+} from '../../helpers/TestPython.helper'
+import {
+  testAllUsersFakePhp,
+  testUserAddFakePhp,
+  testUserDataFakePhp,
+  testUserEditFakePhp,
+  testUserRemoveFakePhp,
+  testAllUsersPhp,
+  testUserAddPhp,
+  testUserDataPhp,
+  testUserEditPhp,
+  testUserRemovePhp,
+} from '../../helpers/TestPhp.helper'
 
 const newUser = {
   name: 'Oleg',
@@ -62,37 +99,62 @@ function App() {
             <h2 className='container-head'>сервер NodeJS</h2>
             <div className='container-body'>
               <div className='container-item'>
-                <Tester name={allUserFakeNode.title} method={allUserFakeNode.method} url={allUserFakeNode.url} />
                 <Tester
-                  name={userAddFakeNode.title}
-                  method={userAddFakeNode.method}
-                  url={userAddFakeNode.url}
+                  name={allUserFakeNode.title as string}
+                  method={allUserFakeNode.method as TMethod}
+                  url={allUserFakeNode.url as string}
+                />
+                <Tester
+                  name={userAddFakeNode.title as string}
+                  method={userAddFakeNode.method as TMethod}
+                  url={userAddFakeNode.url as string}
                   data={newUser}
                 />
-                <Tester name={userDataFakeNode.title} method={userDataFakeNode.method} url={userDataFakeNode.url} />
                 <Tester
-                  name={userEditFakeNode.title}
-                  method={userEditFakeNode.method}
-                  url={userEditFakeNode.url}
+                  name={userDataFakeNode.title as string}
+                  method={userDataFakeNode.method as TMethod}
+                  url={userDataFakeNode.url as string}
+                />
+                <Tester
+                  name={userEditFakeNode.title as string}
+                  method={userEditFakeNode.method as TMethod}
+                  url={userEditFakeNode.url as string}
                   data={{ age: 35 }}
                 />
                 <Tester
-                  name={userRemoveFakeNode.title}
-                  method={userRemoveFakeNode.method}
-                  url={userRemoveFakeNode.url}
+                  name={userRemoveFakeNode.title as string}
+                  method={userRemoveFakeNode.method as TMethod}
+                  url={userRemoveFakeNode.url as string}
                 />
               </div>
               <div className='container-item'>
-                <Tester name={allUserNode.title} method={allUserNode.method} url={allUserNode.url} />
-                <Tester name={userAddNode.title} method={userAddNode.method} url={userAddNode.url} data={newUser} />
-                <Tester name={userDataNode.title} method={userDataNode.method} url={userDataNode.url} />
                 <Tester
-                  name={userEditNode.title}
-                  method={userEditNode.method}
-                  url={userEditNode.url}
+                  name={allUserNode.title as string}
+                  method={allUserNode.method as TMethod}
+                  url={allUserNode.url as string}
+                />
+                <Tester
+                  name={userAddNode.title as string}
+                  method={userAddNode.method as TMethod}
+                  url={userAddNode.url as string}
+                  data={newUser}
+                />
+                <Tester
+                  name={userDataNode.title as string}
+                  method={userDataNode.method as TMethod}
+                  url={userDataNode.url as string}
+                />
+                <Tester
+                  name={userEditNode.title as string}
+                  method={userEditNode.method as TMethod}
+                  url={userEditNode.url as string}
                   data={{ age: 35 }}
                 />
-                <Tester name={userRemoveNode.title} method={userRemoveNode.method} url={userRemoveNode.url} />
+                <Tester
+                  name={userRemoveNode.title as string}
+                  method={userRemoveNode.method as TMethod}
+                  url={userRemoveNode.url as string}
+                />
               </div>
             </div>
           </div>
@@ -100,46 +162,62 @@ function App() {
             <h2 className='container-head'>сервер Python</h2>
             <div className='container-body'>
               <div className='container-item'>
-                <Tester name={allUserFakePython.title} method={allUserFakePython.method} url={allUserFakePython.url} />
                 <Tester
-                  name={userAddFakePython.title}
-                  method={userAddFakePython.method}
-                  url={userAddFakePython.url}
+                  name={allUserFakePython.title as string}
+                  method={allUserFakePython.method as TMethod}
+                  url={allUserFakePython.url as string}
+                />
+                <Tester
+                  name={userAddFakePython.title as string}
+                  method={userAddFakePython.method as TMethod}
+                  url={userAddFakePython.url as string}
                   data={newUser}
                 />
                 <Tester
-                  name={userDataFakePython.title}
-                  method={userDataFakePython.method}
-                  url={userDataFakePython.url}
+                  name={userDataFakePython.title as string}
+                  method={userDataFakePython.method as TMethod}
+                  url={userDataFakePython.url as string}
                 />
                 <Tester
-                  name={userEditFakePython.title}
-                  method={userEditFakePython.method}
-                  url={userEditFakePython.url}
+                  name={userEditFakePython.title as string}
+                  method={userEditFakePython.method as TMethod}
+                  url={userEditFakePython.url as string}
                   data={{ age: 35 }}
                 />
                 <Tester
-                  name={userRemoveFakePython.title}
-                  method={userRemoveFakePython.method}
-                  url={userRemoveFakePython.url}
+                  name={userRemoveFakePython.title as string}
+                  method={userRemoveFakePython.method as TMethod}
+                  url={userRemoveFakePython.url as string}
                 />
               </div>
               <div className='container-item'>
-                <Tester name={allUserPython.title} method={allUserPython.method} url={allUserPython.url} />
                 <Tester
-                  name={userAddPython.title}
-                  method={userAddPython.method}
-                  url={userAddPython.url}
+                  name={allUserPython.title as string}
+                  method={allUserPython.method as TMethod}
+                  url={allUserPython.url as string}
+                />
+                <Tester
+                  name={userAddPython.title as string}
+                  method={userAddPython.method as TMethod}
+                  url={userAddPython.url as string}
                   data={newUser}
                 />
-                <Tester name={userDataPython.title} method={userDataPython.method} url={userDataPython.url} />
                 <Tester
-                  name={userEditPython.title}
-                  method={userEditPython.method}
-                  url={userEditPython.url}
+                  name={userDataPython.title as string}
+                  method={userDataPython.method as TMethod}
+                  url={userDataPython.url as string}
+                />
+                <Tester
+                  name={userEditPython.title as string}
+                  method={userEditPython.method as TMethod}
+                  url={userEditPython.url as string}
                   data={{ age: 35 }}
                 />
-                <Tester name={userRemovePython.title} method={userRemovePython.method} url={userRemovePython.url} />
+                <Tester
+                  name={userRemovePython.title as string}
+                  method={userRemovePython.method as TMethod}
+                  url={userRemovePython.url as string}
+                />
               </div>
             </div>
           </div>
@@ -147,33 +225,62 @@ function App() {
             <h2 className='container-head'>сервер PHP</h2>
             <div className='container-body'>
               <div className='container-item'>
-                <Tester name={allUserFakePhp.title} method={allUserFakePhp.method} url={allUserFakePhp.url} />
                 <Tester
-                  name={userAddFakePhp.title}
-                  method={userAddFakePhp.method}
-                  url={userAddFakePhp.url}
+                  name={allUserFakePhp.title as string}
+                  method={allUserFakePhp.method as TMethod}
+                  url={allUserFakePhp.url as string}
+                />
+                <Tester
+                  name={userAddFakePhp.title as string}
+                  method={userAddFakePhp.method as TMethod}
+                  url={userAddFakePhp.url as string}
                   data={newUser}
                 />
-                <Tester name={userDataFakePhp.title} method={userDataFakePhp.method} url={userDataFakePhp.url} />
                 <Tester
-                  name={userEditFakePhp.title}
-                  method={userEditFakePhp.method}
-                  url={userEditFakePhp.url}
+                  name={userDataFakePhp.title as string}
+                  method={userDataFakePhp.method as TMethod}
+                  url={userDataFakePhp.url as string}
+                />
+                <Tester
+                  name={userEditFakePhp.title as string}
+                  method={userEditFakePhp.method as TMethod}
+                  url={userEditFakePhp.url as string}
                   data={{ age: 35 }}
                 />
                 <Tester
-                  name={userRemoveFakePhp.title}
-                  method={userRemoveFakePhp.method}
-                  url={userRemoveFakePhp.url}
-                  Php
+                  name={userRemoveFakePhp.title as string}
+                  method={userRemoveFakePhp.method as TMethod}
+                  url={userRemoveFakePhp.url as string}
                 />
               </div>
               <div className='container-item'>
-                <Tester name={allUserPhp.title} method={allUserPhp.method} url={allUserPhp.url} />
-                <Tester name={userAddPhp.title} method={userAddPhp.method} url={userAddPhp.url} data={newUser} />
-                <Tester name={userDataPhp.title} method={userDataPhp.method} url={userDataPhp.url} />
-                <Tester name={userEditPhp.title} method={userEditPhp.method} url={userEditPhp.url} data={{ age: 35 }} />
-                <Tester name={userRemovePhp.title} method={userRemovePhp.method} url={userRemovePhp.url} />
+                <Tester
+                  name={allUserPhp.title as string}
+                  method={allUserPhp.method as TMethod}
+                  url={allUserPhp.url as string}
+                />
+                <Tester
+                  name={userAddPhp.title as string}
+                  method={userAddPhp.method as TMethod}
+                  url={userAddPhp.url as string}
+                  data={newUser}
+                />
+                <Tester
+                  name={userDataPhp.title as string}
+                  method={userDataPhp.method as TMethod}
+                  url={userDataPhp.url as string}
+                />
+                <Tester
+                  name={userEditPhp.title as string}
+                  method={userEditPhp.method as TMethod}
+                  url={userEditPhp.url as string}
+                  data={{ age: 35 }}
+                />
+                <Tester
+                  name={userRemovePhp.title as string}
+                  method={userRemovePhp.method as TMethod}
+                  url={userRemovePhp.url as string}
+                />
               </div>
             </div>
           </div>
