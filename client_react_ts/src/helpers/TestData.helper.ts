@@ -2,7 +2,7 @@
  * Получить данные для теста
  */
 interface TestDataProps {
-  test_name: string
+  test_name: 'ALL_USERS' | 'USER_ADD' | 'USER_DATA' | 'USER_EDIT' | 'USER_REMOVE'
   local_port: number
   router: string
   api_version: string

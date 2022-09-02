@@ -1,7 +1,7 @@
 {
-  "name": "nodejs",
+  "name": "test_crud",
   "version": "1.0.0",
-  "description": "",
+  "description": "простой сервер для тестирования CRUD",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
