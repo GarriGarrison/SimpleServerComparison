@@ -1,9 +1,10 @@
 import { testData } from './TestData.helper'
 
-const API_NOW = process.env.API_NODE as string
-const USE_PORT = Number(process.env.HOST_NODE)
-const ROUTER_FAKE = process.env.ROUTER_FAKE as string
-const ROUTER_USERS = process.env.ROUTER_USERS as string
+const API_NOW = 'v1' //process.env.API_NODE as string
+const USE_PORT = 5001 //Number(process.env.HOST_NODE)
+const ROUTER_FAKE = 'fake' //process.env.ROUTER_FAKE as string
+const ROUTER_USERS = 'users' //process.env.ROUTER_USERS as string
+
 
 /** Проверка сервера NodeJS */
 /* Фейковые данные */

@@ -86,6 +86,9 @@ function App() {
   const userDataPhp = testUserDataPhp
   const userEditPhp = testUserEditPhp
   const userRemovePhp = testUserRemovePhp
+  
+  console.log('allUserFakeNode', allUserFakeNode)
+  
 
   return (
     <div className='App'>
