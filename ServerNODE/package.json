@@ -2,7 +2,7 @@
   "name": "test_crud",
   "version": "1.0.0",
   "description": "простой сервер для тестирования CRUD",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,8 @@
     "express": "^4.18.1",
     "express-fileupload": "^1.4.0",
     "http-errors": "^2.0.0",
+    "mongodb": "^4.9.1",
+    "mongoose": "^6.5.4",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.21.3"
