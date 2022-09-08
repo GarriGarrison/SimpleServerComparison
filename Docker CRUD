@@ -1,0 +1,41 @@
+// Контейнер Postgres версии 13.3
+docker run --name crud-pg-13.3 -p 5051:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=pgadmin -e POSTGRES_DB=crud_db -d postgres:13.3
+
+// Контейнер Mongo последней версии
+docker run --name crud-mongo-latest -d -p 5052:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example mongo
+
+// Контейнер NodeJS
+// 1. в паке проекта создаём image
+docker build . -t crud_nodejs
+// 2. создаём и запускаем контейнер
+docker run --name crud-server-node -d -p 5001:5001 crud_nodejs
+// 3. запуск контейнера (чтобы каждый раз не собирать)
+docker start crud-server-node
+// 4. остановка контейнера
+docker stop crud-server-node
+
+// Контейнер ReactTS
+// 1. в паке проекта создаём image
+docker build . -t crud_react
+// 2. создаём и запускаем контейнер
+docker run --name crud-react -d -p 5030:3000 crud_react
+// 3. запуск контейнера (чтобы каждый раз не собирать)
+docker start crud-react
+// 4. остановка контейнера
+docker stop crud-react
+
+
+
+// Контейнер Automato
+//Dockerfile
+FROM node:13.12.0-alpine
+
+VOLUME /app
+WORKDIR /app
+
+RUN apk --no-cache add --virtual builds-deps build-base python3
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+EXPOSE 3000
