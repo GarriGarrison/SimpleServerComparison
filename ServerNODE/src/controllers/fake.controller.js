@@ -58,7 +58,7 @@ const addUser = (req, res) => {
   console.log('POST add new user')
   console.error('ERROR')
   console.log('--------------------------------------------------')
-  
+
   return res.sendStatus(400)
 }
 
@@ -80,7 +80,7 @@ const getUser = (req, res) => {
   console.log('GET user with id=' + id)
   console.error('ERROR')
   console.log('--------------------------------------------------')
-  
+
   return res.sendStatus(500)
 }
 

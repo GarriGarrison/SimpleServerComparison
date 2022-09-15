@@ -1,5 +1,5 @@
 {
-  "name": "test_crud",
+  "name": "servernode",
   "version": "1.0.0",
   "description": "простой сервер для тестирования CRUD",
   "main": "app.js",
@@ -11,17 +11,13 @@
   "author": "Garrison",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "express-fileupload": "^1.4.0",
     "http-errors": "^2.0.0",
-    "mongodb": "^4.9.1",
-    "mongoose": "^6.5.4",
-    "pg": "^8.7.3",
+    "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.21.3"
+    "sequelize": "^6.21.6"
   },
   "devDependencies": {
     "express-session": "^1.17.3",

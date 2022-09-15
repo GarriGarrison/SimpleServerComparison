@@ -16,7 +16,9 @@ async function start() {
     })
 
     app.listen(PORT, () => {
-      console.log(`Server has been started on PORT: ${PORT}\n build: ${RELEASE},  date: ${DATE} `)
+      console.log(
+        `Server has been started on PORT: ${PORT}\n build: ${RELEASE},  date: ${DATE} `
+      )
     })
   } catch (e) {
     console.error(e)
