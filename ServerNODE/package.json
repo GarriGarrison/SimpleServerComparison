@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "простой сервер для тестирования CRUD",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +12,7 @@
   "author": "Garrison",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",

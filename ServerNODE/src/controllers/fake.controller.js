@@ -1,142 +1,66 @@
-const users = [
-  {
-    id: 1,
-    name: 'Olga',
-    age: 18,
-    city: 'Kyev',
-  },
-  {
-    id: 2,
-    name: 'Egor',
-    age: 16,
-    city: 'NY',
-  },
-  {
-    id: 3,
-    name: 'Bob',
-    age: 34,
-    city: 'Canzas',
-  },
-  {
-    id: 4,
-    name: 'Zac',
-    age: 57,
-    city: 'London',
-  },
-  {
-    id: 5,
-    name: 'Mike',
-    age: 7,
-    city: 'Berlin',
-  },
-]
+import chalk from 'chalk'
+import {
+  getAllUsersDB,
+  addUserDB,
+  getUserDB,
+  editUserDB,
+  deleteUserDB,
+} from '../services/fake.service.js'
 
 const getAllUsers = (req, res) => {
-  console.log('GET all users')
-  console.log(users)
-  console.log('--------------------------------------------------')
-  return res.status(200).json(users)
+  const usersDB = getAllUsersDB()
+  return res.status(200).json(usersDB)
 }
 
 const addUser = (req, res) => {
   if (!req.body) return res.sendStatus(400)
 
-  const { name, age, city } = req.body
+  const usersDB = addUserDB(req.body)
 
-  if (name && age && city) {
-    let last_id = users[users.length - 1].id
-
-    users.push({ id: ++last_id, name, age, city })
-
-    console.log('POST add new user')
-    console.log(users)
-    console.log('--------------------------------------------------')
-
-    return res.status(201).json(users)
+  if (usersDB) {
+    return res.status(201).json(usersDB)
   }
 
-  console.log('POST add new user')
-  console.error('ERROR')
-  console.log('--------------------------------------------------')
-
+  console.error(chalk.red(`Не удалось создать нового пользователя`))
   return res.sendStatus(400)
 }
 
-const getUser = (req, res) => {
-  if (!req.body) return res.sendStatus(400)
-
+const getUser = async (req, res) => {
   const { id } = req.params
+  const userDB = await getUserDB(id)
 
-  for (const user of users) {
-    if (user.id == id) {
-      console.log('GET user with id=' + id)
-      console.log(user)
-      console.log('--------------------------------------------------')
-
-      return res.status(200).json(user)
-    }
+  if (userDB) {
+    return res.status(200).json(userDB)
   }
 
-  console.log('GET user with id=' + id)
-  console.error('ERROR')
-  console.log('--------------------------------------------------')
-
+  console.error(chalk.red(`Пользователя с id = ${id} в базе данных нет`))
   return res.sendStatus(500)
 }
 
 const editUser = async (req, res) => {
   const { id } = req.params
+  const userDB = await editUserDB(id, req.body)
 
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].id == id) {
-      users[i] = {
-        ...users[i],
-        ...req.body,
-      }
-
-      console.log('PATCH edit user with id=' + id)
-      console.log(users)
-      console.log('--------------------------------------------------')
-
-      return res.status(200).json(users[i])
-    }
+  if (userDB) {
+    return res.status(200).json(userDB)
   }
 
-  console.log('PATCH edit user with id=' + id)
-  console.error('ERROR')
-  console.log('--------------------------------------------------')
-
+  console.error(
+    chalk.red(`Изменить данные пользователя с id = ${id} не удалось`)
+  )
   return res.sendStatus(424)
 }
 
 const deleteUser = async (req, res) => {
   const { id } = req.params
+  const userDB = await deleteUserDB(id)
 
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].id == id) {
-      const remove = users.splice(i, 1)
-
-      console.log('DELETE remove user with id=' + id)
-      console.log(remove)
-      console.log('++++++++++++++++++++++++++++++++++++++++++++++++++')
-      console.log(users)
-      console.log('--------------------------------------------------')
-
-      return res.status(200).json(users[i])
-    }
+  if (userDB) {
+    return res.status(200).json(userDB)
   }
 
-  console.log('DELETE remove user with id=' + id)
-  console.error('ERROR')
-  console.log('--------------------------------------------------')
-
+  console.error(chalk.red(`Удалить пользователя с id = ${id} не удалось`))
   return res.sendStatus(424)
 }
 
-module.exports = {
-  getAllUsers,
-  addUser,
-  getUser,
-  editUser,
-  deleteUser,
-}
+export { getAllUsers, addUser, getUser, editUser, deleteUser }

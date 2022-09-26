@@ -3,18 +3,17 @@
  * Path: "server"
  * Author: Garrison
  */
-const RELEASE = 8
-const DATE = '14.09.2022 г.'
+import express from 'express'
+import cors from 'cors'
+import path from 'path'
+import * as dotenv from 'dotenv'
+import chalk from 'chalk'
+import fakeRouter from './src/routes/fake.router.js'
 
-const express = require('express')
-const cors = require('cors')
-const path = require('path')
-require('dotenv').config()
-// const { isConnectDB } = require('./src/db/models')
+const RELEASE = 9
+const DATE = '26.09.2022 г.'
 
-const fakeRouter = require('./src/routes/fake.router')
-const usersRouter = require('./src/routes/users.router')
-
+dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 3001
 
@@ -31,14 +30,14 @@ app.use(express.static(path.join(process.env.PWD, 'public')))
 
 /* APP'S ROUTES */
 app.use('/api/v1/fake', fakeRouter)
-app.use('/api/v1/users', usersRouter)
+// app.use('/api/v1/users', usersRouter)
 
 app.use((req, res, next) => {
   return res.sendStatus(404)
 })
 
 app.listen(PORT, () => {
-  console.log(
+  console.log(chalk.green(
     `Server has been started on PORT: ${PORT}\n build: ${RELEASE},  date: ${DATE} `
-  )
+  ))
 })

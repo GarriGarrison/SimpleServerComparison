@@ -20,7 +20,7 @@ if (config.use_env_variable) {
   )
 }
 
-testConnectDB()
+// testConnectDB()
 
 fs.readdirSync(__dirname)
   .filter((file) => {
@@ -45,13 +45,13 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
-async function testConnectDB() {
-  try {
-    await sequelize.authenticate()
-    console.log('Соединение с БД было успешно установлено')
-  } catch (err) {
-    console.error('Невозможно выполнить подключение к БД: ', err)
-  }
-}
+// async function testConnectDB() {
+//   try {
+//     await sequelize.authenticate()
+//     console.log('Соединение с БД было успешно установлено')
+//   } catch (err) {
+//     console.error('Невозможно выполнить подключение к БД: ', err)
+//   }
+// }
 
 module.exports = db
