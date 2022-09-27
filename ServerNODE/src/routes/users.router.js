@@ -1,9 +1,9 @@
+'use strict'
+
 const router = require('express').Router()
 const usersController = require('../controllers/users.controller')
 
-router.route('/')
-  .get(usersController.getAllUsers)
-  .post(usersController.addUser)
+router.route('/').get(usersController.getAllUsers).post(usersController.addUser)
 
 router
   .route('/:id')

@@ -1,3 +1,5 @@
+'use strict'
+
 const users = [
   {
     id: 1,
@@ -39,7 +41,10 @@ const getAllUsersDB = () => {
 }
 
 const addUserDB = (user) => {
-  if (!user) throw 'Нет даных нового пользователя'
+  if (!user) {
+    // throw 'Нет даных нового пользователя'
+    return null
+  }
 
   const { name, age, city } = user
 
@@ -117,7 +122,7 @@ const deleteUserDB = async (id) => {
       console.log(users)
       console.log('--------------------------------------------------')
 
-      return users[i]
+      return remove
     }
   }
 
@@ -129,4 +134,10 @@ const deleteUserDB = async (id) => {
   return null
 }
 
-export { getAllUsersDB, addUserDB, getUserDB, editUserDB, deleteUserDB }
+module.exports = {
+  getAllUsersDB,
+  addUserDB,
+  getUserDB,
+  editUserDB,
+  deleteUserDB,
+}

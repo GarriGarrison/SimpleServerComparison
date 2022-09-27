@@ -3,6 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const Sequelize = require('sequelize')
+
 const basename = path.basename(__filename)
 const env = process.env.NODE_ENV || 'development'
 const config = require(__dirname + '/../config/database.js')[env]
@@ -19,8 +20,6 @@ if (config.use_env_variable) {
     config
   )
 }
-
-// testConnectDB()
 
 fs.readdirSync(__dirname)
   .filter((file) => {
@@ -44,14 +43,5 @@ Object.keys(db).forEach((modelName) => {
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
-
-// async function testConnectDB() {
-//   try {
-//     await sequelize.authenticate()
-//     console.log('Соединение с БД было успешно установлено')
-//   } catch (err) {
-//     console.error('Невозможно выполнить подключение к БД: ', err)
-//   }
-// }
 
 module.exports = db

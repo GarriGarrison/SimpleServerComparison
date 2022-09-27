@@ -1,33 +1,30 @@
-import chalk from 'chalk'
-import {
-  getAllUsersDB,
-  addUserDB,
-  getUserDB,
-  editUserDB,
-  deleteUserDB,
-} from '../services/fake.service.js'
+'use strict'
+
+const fakeService = require('../services/fake.service')
 
 const getAllUsers = (req, res) => {
-  const usersDB = getAllUsersDB()
+  const usersDB = fakeService.getAllUsersDB()
   return res.status(200).json(usersDB)
 }
 
 const addUser = (req, res) => {
-  if (!req.body) return res.sendStatus(400)
+  if (!req.body) {
+    return res.sendStatus(400)
+  }
 
-  const usersDB = addUserDB(req.body)
+  const usersDB = fakeService.addUserDB(req.body)
 
   if (usersDB) {
     return res.status(201).json(usersDB)
   }
 
-  console.error(chalk.red(`Не удалось создать нового пользователя`))
+  console.error(`Не удалось создать нового пользователя`)
   return res.sendStatus(400)
 }
 
 const getUser = async (req, res) => {
   const { id } = req.params
-  const userDB = await getUserDB(id)
+  const userDB = await fakeService.getUserDB(id)
 
   if (userDB) {
     return res.status(200).json(userDB)
@@ -39,28 +36,32 @@ const getUser = async (req, res) => {
 
 const editUser = async (req, res) => {
   const { id } = req.params
-  const userDB = await editUserDB(id, req.body)
+  const userDB = await fakeService.editUserDB(id, req.body)
 
   if (userDB) {
     return res.status(200).json(userDB)
   }
 
-  console.error(
-    chalk.red(`Изменить данные пользователя с id = ${id} не удалось`)
-  )
-  return res.sendStatus(424)
+  console.error(`Изменить данные пользователя с id = ${id} не удалось`)
+  return res.sendStatus(424) //418
 }
 
 const deleteUser = async (req, res) => {
   const { id } = req.params
-  const userDB = await deleteUserDB(id)
+  const userDB = await fakeService.deleteUserDB(id)
 
   if (userDB) {
     return res.status(200).json(userDB)
   }
 
-  console.error(chalk.red(`Удалить пользователя с id = ${id} не удалось`))
-  return res.sendStatus(424)
+  console.error(`Удалить пользователя с id = ${id} не удалось`)
+  return res.sendStatus(500)
 }
 
-export { getAllUsers, addUser, getUser, editUser, deleteUser }
+module.exports = {
+  getAllUsers,
+  addUser,
+  getUser,
+  editUser,
+  deleteUser,
+}

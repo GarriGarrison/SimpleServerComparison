@@ -1,19 +1,15 @@
-import { Router } from 'express'
-import {
-  getAllUsers,
-  addUser,
-  getUser,
-  editUser,
-  deleteUser,
-} from '../controllers/fake.controller.js'
+'use strict'
 
-const router = new Router()
+const router = require('express').Router()
+const fakeController = require('../controllers/fake.controller')
 
-router.post('/', addUser)
-router.get('/', getAllUsers)
-router.get('/:id', getUser)
-router.patch('/:id', editUser)
-router.put('/:id', editUser)
-router.delete('/:id', deleteUser)
+router.route('/').get(fakeController.getAllUsers).post(fakeController.addUser)
 
-export default router
+router
+  .route('/:id')
+  .get(fakeController.getUser)
+  .patch(fakeController.editUser)
+  // .put(fakeController.editUser)
+  .delete(fakeController.deleteUser)
+
+module.exports = router
